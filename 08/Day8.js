@@ -1,5 +1,5 @@
 const readFile = require("fs").readFileSync;
-const input = readFile("test-input.txt", "utf-8")
+const input = readFile("input.txt", "utf-8")
   .split("\n")
   .map((_) => _.split(" | "));
 
