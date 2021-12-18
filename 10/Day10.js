@@ -28,7 +28,6 @@ const out = input
   })
   .map((line) => {
     const stack = [];
-    const complete = [];
     const chars = Array.from(line);
     for (const char of chars) {
       if (char === "<" || char === "{" || char === "(" || char === "[") {
