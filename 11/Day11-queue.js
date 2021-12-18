@@ -16,7 +16,9 @@ console.log("Starting grid\n", grid.map((_) => _.join(" ")).join("\n"), "\n");
 
 let countFlashes = 0;
 
-for (let step = 0; step < 100; step += 1) {
+let run = true;
+let n = 0;
+while (run) {
   queue = [];
   flashed = [];
 
@@ -31,18 +33,6 @@ for (let step = 0; step < 100; step += 1) {
       }
     }
   }
-
-  // for (let row = 0; row < grid.length; row += 1) {
-  //   for (let cell = 0; cell < grid[row].length; cell += 1) {
-  //     if (grid[row][cell] > 9) {
-  //       //   grid[row][cell] = 0;
-  //       queuePush(row, cell);
-  //       // } else {
-  //       // grid[row][cell] += 1;
-  //       // }
-  //     }
-  //   }
-  // }
 
   // console.log("+1\n", grid.map((_) => _.join(" ")).join("\n"), "\n");
   // console.log("queue after adding +1", queue);
@@ -163,10 +153,18 @@ for (let step = 0; step < 100; step += 1) {
     // console.log(queue);
   }
 
-  console.log(step + 1)
-  console.log(grid.map((_) => _.join(" ")).join("\n"), "\n");
+  // console.log(step + 1)
+  // console.log(grid.map((_) => _.join(" ")).join("\n"), "\n");]
 
-  countFlashes += flashed.length
+  countFlashes += flashed.length;
+  n += 1;
+  if (
+    grid.map((_) => _.join("")).join("") ===
+    "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+  ) {
+    run = false;
+  }
+
 }
 
-console.log(countFlashes)
+console.log(n, countFlashes);
